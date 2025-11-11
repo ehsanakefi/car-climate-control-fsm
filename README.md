@@ -1,71 +1,65 @@
-# گزارش کامل پروژه: ماشین حالت محدود سیستم تنظیم هوای خودرو
+# Complete Project Report: Car Climate Control System Finite State Machine
 
-## 📋 مشخصات پروژه
+## 📋 Project Specifications
 
-**نام پروژه:** سیستم تنظیم هوای خودرو با ماشین حالت محدود (FSM)  
-**تاریخ تکمیل:** ۲۱ آبان ۱۴۰۴  
-**زبان‌های استفاده شده:** HTML, CSS, JavaScript  
-**نوع پروژه:** وب اپلیکیشن تعاملی
+**Project Name:** Car Climate Control System with Finite State Machine (FSM)  
+**Completion Date:** November 12, 2025  
+**Languages Used:** HTML, CSS, JavaScript  
+**Project Type:** Interactive Web Application
+**Creator project:** Ehsan Akefi
 
-## 🎯 هدف و معرفی پروژه
+## 🎯 Objective and Introduction
 
-این پروژه یک شبیه‌ساز کامل سیستم تنظیم هوای خودرو است که با استفاده از مفهوم **ماشین حالت محدود (Finite State Machine)** طراحی شده است. هدف اصلی این پروژه آموزش مفاهیم سیستم‌های سایبرفیزیک و نمایش عملکرد FSM در یک محیط تعاملی و بصری است.
+This project is a complete simulator for a car's climate control system, designed using the concept of a **Finite State Machine (FSM)**. The main goal of this project is to teach the concepts of Cyber-Physical Systems (CPS) and demonstrate the functionality of an FSM in an interactive and visual environment.
 
-## ⚙️ ویژگی‌های کلیدی پروژه
+## ⚙️ Key Project Features
 
-### 🔧 ویژگی‌های فنی:
+### 🔧 Technical Features:
 
-- **ماشین حالت محدود سه حالته:** IDLE، COOLING، HEATING
-- **کنترل دمای تعاملی:** اسلایدر برای تنظیم دما (۰ تا ۵۰ درجه سانتی‌گراد)
-- **نمایش گرافیکی FSM:** دیاگرام تعاملی با حالات و انتقالات
-- **انیمیشن خودرو:** نمایش بصری خودرو با تغییر رنگ بر اساس حالت
-- **انیمیشن جاده:** خطوط متحرک جاده برای شبیه‌سازی حرکت
+- **Three-State FSM:** IDLE, COOLING, HEATING
+- **Interactive Temperature Control:** Slider for temperature adjustment (0 to 50°C)
+- **Graphical FSM Display:** Interactive diagram with states and transitions
+- **Car Animation:** Visual representation of the car changing color based on its state
+- **Road Animation:** Moving road lines to simulate motion
 
-### 🎮 ویژگی‌های تعاملی:
+### 🎮 Interactive Features:
 
-- **کنترل با اسلایدر:** تنظیم دمای محیط
-- **میانبرهای صفحه‌کلید:** H (گرم)، C (سرد)، N (عادی)
-- **نمایش وضعیت بلادرنگ:** دما و حالت فعلی سیستم
-- **هایلایت انتقالات:** نمایش بصری انتقال بین حالات
+- **Slider Control:** Adjust the ambient temperature
+- **Keyboard Shortcuts:** H (Hot), C (Cold), N (Normal)
+- **Real-time Status Display:** Current temperature and system state
+- **Transition Highlighting:** Visual display of transitions between states
 
-## 🔄 منطق ماشین حالت محدود (FSM Logic)
+## 🔄 FSM Logic
 
-### حالات سیستم:
+### System States:
 
-#### 1️⃣ حالت اولیه (IDLE)
+#### 1️⃣ IDLE State
 
-- **توضیح:** حالت پیش‌فرض سیستم زمانی که دما در محدوده مناسب قرار دارد
-- **شرط:** ۱۵°C ≤ دما ≤ ۳۵°C
-- **وضعیت سیستم:** هیچ‌یک از سیستم‌های گرمایش یا سرمایش فعال نیست
-- **رنگ خودرو:** خاکستری (حالت عادی)
+- **Description:** The system's default state when the temperature is within the suitable range.
+- **Condition:** 15°C ≤ Temp ≤ 35°C
+- **System Status:** Neither heating nor cooling systems are active.
+- **Car Color:** Gray (Normal state)
 
-#### 2️⃣ حالت سرمایش (COOLING)
+#### 2️⃣ COOLING State
 
-- **توضیح:** فعال‌سازی سیستم تهویه مطبوع برای کاهش دما
-- **شرط ورود:** دما > ۳۵°C
-- **شرط خروج:** دما < ۲۵°C
-- **رنگ خودرو:** آبی (نمایش سرمایش)
+- **Description:** Activates the air conditioning system to reduce the temperature.
+- **Entry Condition:** Temp > 35°C
+- **Exit Condition:** Temp < 25°C
+- **Car Color:** Blue (Representing cooling)
 
-#### 3️⃣ حالت گرمایش (HEATING)
+#### 3️⃣ HEATING State
 
-- **توضیح:** فعال‌سازی سیستم بخاری برای افزایش دما
-- **شرط ورود:** دما < ۱۵°C
-- **شرط خروج:** دما ≥ ۳۰°C
-- **رنگ خودرو:** قرمز (نمایش گرمایش)
+- **Description:** Activates the heating system to increase the temperature.
+- **Entry Condition:** Temp < 15°C
+- **Exit Condition:** Temp ≥ 30°C
+- **Car Color:** Red (Representing heating)
 
-### قوانین انتقال (Transition Rules):
-
-```
-IDLE → COOLING: زمانی که دما از ۳۵ درجه بالاتر رود
-IDLE → HEATING: زمانی که دما از ۱۵ درجه پایین‌تر بیاید
-COOLING → IDLE: زمانی که دما به زیر ۲۵ درجه برسد
-HEATING → IDLE: زمانی که دما به ۳۰ درجه یا بالاتر برسد
+### Transition Rules:
 ```
 
-## 🏗️ معماری فایل‌های پروژه
+## 🏗️ Project File Architecture
 
-### 📁 ساختار پروژه:
-
+### 📁 Project Structure:
 ```
 tamrin1/
 ├── index.html              # فایل HTML اصلی
@@ -76,30 +70,26 @@ tamrin1/
 ├── coupe-car-svgrepo-com.svg  # فایل SVG خودرو
 └── گزارش_کار.md            # این گزارش
 ```
+## 💻 Code Analysis
 
-## 💻 تحلیل کد برنامه
+### 🌐 HTML File (index.html)
 
-### 🌐 فایل HTML (index.html)
-
-#### ساختار کلی:
+#### General Structure:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- متادیتا و لینک به CSS -->
-    <title>ماشین حالت تنظیم هوای خودرو</title>
+    <title>Car Climate Control FSM</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- محتوای اصلی برنامه -->
-  </body>
+    </body>
 </html>
-```
 
-#### بخش‌های کلیدی HTML:
+#### Key HTML Sections:
 
-**۱. کنترل دما:**
+**۱.Temperature Control:**
 
 ```html
 <div class="temperature-control">
@@ -117,7 +107,7 @@ tamrin1/
 </div>
 ```
 
-**۲. پنل وضعیت:**
+**۲. Status Panel::**
 
 ```html
 <div class="status-panel">
@@ -132,7 +122,7 @@ tamrin1/
 </div>
 ```
 
-**۳. دیاگرام FSM:**
+**۳. FSM Diagram::**
 
 ```html
 <div class="fsm-diagram">
@@ -146,7 +136,7 @@ tamrin1/
 </div>
 ```
 
-**۴. انیمیشن خودرو:**
+**۴.Car Animation:**
 
 ```html
 <div class="road-container">
@@ -161,11 +151,11 @@ tamrin1/
 </div>
 ```
 
-### 🎨 فایل CSS (styles.css)
+### 🎨 CSS File (styles.css)
 
-#### استایل‌های کلیدی:
+#### Key Styles:
 
-**۱. طراحی کلی صفحه:**
+**۱. General Page Design:**
 
 ```css
 body {
@@ -178,7 +168,7 @@ body {
 }
 ```
 
-**۲. انیمیشن جاده:**
+**۲. Road Animation:**
 
 ```css
 @keyframes movingRoad {
@@ -195,7 +185,7 @@ body {
 }
 ```
 
-**۳. حالت‌های خودرو:**
+**۳. Car States:**
 
 ```css
 .car-idle .car-body {
@@ -211,7 +201,7 @@ body {
 }
 ```
 
-**۴. دیاگرام FSM:**
+**۴. FSM Diagram:**
 
 ```css
 .fsm-state {
@@ -232,45 +222,45 @@ body {
 }
 ```
 
-### ⚙️ فایل JavaScript - ماشین حالت (fsm.js)
+### ⚙️JavaScript File - State Machine (fsm.js)
 
-#### کلاس اصلی FSM:
+#### Main FSM Class:
 
-**۱. سازنده کلاس:**
+**۱. Class Constructor::**
 
 ```javascript
 class ClimateControlFSM {
   constructor() {
-    // تعریف سه حالت اصلی
+
     this.states = {
       IDLE: "IDLE",
       COOLING: "COOLING",
       HEATING: "HEATING",
     };
 
-    // تنظیم حالت اولیه
+   
     this.currentState = this.states.IDLE;
     this.currentTemperature = 25;
 
-    // متغیرهای DOM برای تعامل با صفحه
+
     this.tempSlider = null;
     this.tempDisplay = null;
     this.currentStateDisplay = null;
-    // ... سایر متغیرها
+
   }
 }
 ```
 
-**۲. متد اتصال به عناصر DOM:**
+**۲. DOM Element Binding Method::**
 
 ```javascript
 attachElements(selectors = {}) {
-    // اتصال به عناصر HTML
+
     this.tempSlider = document.getElementById('tempSlider');
     this.tempDisplay = document.getElementById('tempDisplay');
     // ...
 
-    // تنظیم Event Listener برای اسلایدر
+
     if (this.tempSlider) {
         this.tempSlider.addEventListener('input', (e) => {
             this.currentTemperature = parseInt(e.target.value, 10);
@@ -279,7 +269,7 @@ attachElements(selectors = {}) {
         });
     }
 
-    // به‌روزرسانی اولیه نمایش
+
     this.updateDisplay();
     this.updateCarVisuals();
     this.updateStateDescription();
@@ -287,7 +277,7 @@ attachElements(selectors = {}) {
 }
 ```
 
-**۳. منطق اصلی FSM:**
+**۳.Main FSM Logic:**
 
 ```javascript
 processTemperatureChange() {
@@ -307,43 +297,43 @@ processTemperatureChange() {
 }
 ```
 
-**۴. مدیریت انتقال حالات:**
+**۴. State Transition Management:**
 
 ```javascript
 transitionTo(newState) {
-    // جلوگیری از انتقال غیرضروری
+
     if (newState === this.currentState) return;
 
     console.log(`State transition: ${this.currentState} → ${newState}`);
 
-    // هایلایت انتقال در دیاگرام
+    
     this.highlightTransition(this.currentState, newState);
 
-    // تغییر حالت
+    
     this.currentState = newState;
 
-    // به‌روزرسانی نمایش
+    
     this.updateCarVisuals();
     this.updateStateDescription();
     this.updateFSMDiagram();
 }
 ```
 
-**۵. به‌روزرسانی نمایش خودرو:**
+**۵. Update Car Visuals:**
 
 ```javascript
 updateCarVisuals() {
     if (!this.car || !this.carsvg) return;
 
-    // ریست کردن کلاس‌ها
+
     this.car.className = 'car';
     this.carsvg.setAttribute('class', 'carsvg');
 
-    // حذف افکت‌های قبلی
+   
     if (this.coolingEffect) this.coolingEffect.classList.remove('effect-active');
     if (this.heatingEffect) this.heatingEffect.classList.remove('effect-active');
 
-    // اعمال استایل مناسب برای هر حالت
+    
     switch (this.currentState) {
         case this.states.IDLE:
             this.carsvg.classList.add('car-idle');
@@ -360,16 +350,16 @@ updateCarVisuals() {
 }
 ```
 
-**۶. به‌روزرسانی دیاگرام FSM:**
+**۶. Update FSM Diagram:**
 
 ```javascript
 updateFSMDiagram() {
-    // ریست کردن همه حالات
+
     if (this.fsmIdleState) this.fsmIdleState.classList.remove('active');
     if (this.fsmCoolingState) this.fsmCoolingState.classList.remove('active');
     if (this.fsmHeatingState) this.fsmHeatingState.classList.remove('active');
 
-    // فعال‌سازی حالت جاری
+   
     switch (this.currentState) {
         case this.states.IDLE:
             if (this.fsmIdleState) this.fsmIdleState.classList.add('active');
@@ -384,25 +374,24 @@ updateFSMDiagram() {
 }
 ```
 
-**۷. هایلایت انتقالات:**
+**۷. Highlight Transitions:**
 
 ```javascript
 highlightTransition(fromState, toState) {
-    // پیدا کردن فلش و برچسب مناسب
-    let activeArrow = null;
+       let activeArrow = null;
     let activeLabel = null;
 
     if (fromState === this.states.IDLE && toState === this.states.COOLING) {
         activeArrow = this.arrowIdleCooling;
         activeLabel = this.labelIdleCooling;
     }
-    // ... سایر حالات
+    
 
     if (activeArrow && activeLabel) {
         activeArrow.classList.add('active');
         activeLabel.classList.add('active');
 
-        // حذف هایلایت بعد از ۲ ثانیه
+       
         setTimeout(() => {
             activeArrow.classList.remove('active');
             activeLabel.classList.remove('active');
@@ -411,35 +400,35 @@ highlightTransition(fromState, toState) {
 }
 ```
 
-### 🎮 فایل JavaScript - مدیریت رویدادها (script.js)
+### 🎮 JavaScript File - Event Management(script.js)
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-  // ایجاد نمونه از FSM
+  
   window.climateControl = new window.ClimateControlFSM();
   window.climateControl.attachElements();
 
   console.log("Car Climate Control State Machine initialized");
 
-  // میانبرهای صفحه‌کلید
+ 
   document.addEventListener("keydown", function (e) {
     const climate = window.climateControl;
     if (!climate) return;
 
     switch (e.key) {
-      case "h": // H for hot - گرم
+      case "h": // H for hot - 
         climate.currentTemperature = 40;
         if (climate.tempSlider) climate.tempSlider.value = 40;
         climate.processTemperatureChange();
         climate.updateDisplay();
         break;
-      case "c": // C for cold - سرد
+      case "c": // C for cold - 
         climate.currentTemperature = 10;
         if (climate.tempSlider) climate.tempSlider.value = 10;
         climate.processTemperatureChange();
         climate.updateDisplay();
         break;
-      case "n": // N for normal - عادی
+      case "n": // N for normal - 
         climate.currentTemperature = 25;
         if (climate.tempSlider) climate.tempSlider.value = 25;
         climate.processTemperatureChange();
@@ -450,115 +439,64 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 ```
 
-## 🔄 الگوریتم عملکرد سیستم
+## 🔄 System Operation Algorithm  
 
-### مراحل اجرای برنامه:
+### Program Execution Steps:
 
-1. **مقداردهی اولیه:**
+1. **Initialization:**
 
-   - ایجاد نمونه از کلاس `ClimateControlFSM`
-   - تنظیم حالت اولیه به `IDLE`
-   - تنظیم دمای پیش‌فرض ۲۵ درجه
+   - Create an instance of the `ClimateControlFSM` class
+   - Set the initial state to `IDLE`
+   - Set the default temperature to ۲۵ 
 
-2. **اتصال به DOM:**
+2. **DOM Binding:**
 
-   - پیدا کردن عناصر HTML مورد نیاز
-   - تنظیم Event Listenerها
-   - به‌روزرسانی اولیه نمایش
+   - Find the required HTML elements.
+   - Set up Event Listeners.
+   - Perform an initial update of the display.
 
-3. **حلقه اصلی عملکرد:**
+3. **Main Operation Loop**
 
    ```
-   رویداد تغییر دما → processTemperatureChange() → بررسی شرایط انتقال →
-   transitionTo() → به‌روزرسانی نمایش (خودرو + دیاگرام + وضعیت)
+  Temperature Change Event → processTemperatureChange() → Check Transition Conditions →
+  transitionTo() → Update Display (Car + Diagram + Status)
    ```
 
-4. **مدیریت انتقالات:**
-   - بررسی حالت فعلی
-   - مقایسه دما با حدود تعریف شده
-   - تصمیم‌گیری برای انتقال
-   - اجرای انتقال و به‌روزرسانی نمایش
+4. **Transition Management:**
+   - Check the current state.
+   - Compare the temperature with the defined thresholds.
+   - Decide whether to transition.
+   - Execute the transition and update the display.
 
-## 🎯 ویژگی‌های کاربری
+## 🎯 User Features
 
-### تعامل با کاربر:
+### User Interaction:
 
-1. **کنترل اسلایدر:**
+1. **Slider Control:**
 
-   - محدوده: ۰ تا ۵۰ درجه سانتی‌گراد
-   - تغییر بلادرنگ: هر تغییر فوری اعمال می‌شود
-   - نمایش عددی: مقدار دقیق دما نمایش داده می‌شود
+   - Range: 0 to 50°C
+   - Real-time Change: Every change is applied immediately.
+   - Numerical Display: The exact temperature value is shown.
 
-2. **میانبرهای صفحه‌کلید:**
+2. **Keyboard Shortcuts:**
 
-   - `H`: تنظیم دما روی ۴۰ درجه (گرم)
-   - `C`: تنظیم دما روی ۱۰ درجه (سرد)
-   - `N`: تنظیم دما روی ۲۵ درجه (عادی)
+   - `H`: Set temperature to 40°C (Hot)
+   - `C`: Set temperature to 10°C (Cold)
+   - `N`: Set temperature to 25°C (Normal)
 
-3. **نمایش بصری:**
-   - **پنل وضعیت**: نمایش حالت فعلی و دما
-   - **دیاگرام FSM**: نمایش گرافیکی حالات و انتقالات
-   - **خودروی متحرک**: تغییر رنگ بر اساس حالت
-   - **افکت‌های اقلیمی**: نمایش بصری سرمایش یا گرمایش
+3. **Visual Display**
+   - **Status Panel**: Shows the current state and temperature.
+   - **FSM Diagram**: Provides a graphical view of states and transitions.
+   - **Moving Car**: Changes color based on the state.
+   - **Climate Effects**: Visual representation of cooling or heating.
 
-## 📊 تحلیل عملکرد
+## 📊Performance Analysis
 
-### نقاط قوت پروژه:
+### Project Strength:
 
-1. **پیاده‌سازی صحیح FSM**: منطق ماشین حالت طبق اصول علمی
-2. **رابط کاربری جذاب**: طراحی بصری و تعاملی
-3. **کد تمیز و منظم**: تفکیک وظایف در فایل‌های مختلف
-4. **قابلیت توسعه**: ساختار قابل گسترش برای حالات بیشتر
-5. **پاسخ‌دهی بلادرنگ**: تغییرات فوری اعمال می‌شود
-
-### کاربردهای آموزشی:
-
-1. **آموزش مفاهیم FSM**: نمایش عملی ماشین حالت محدود
-2. **سیستم‌های سایبرفیزیک**: مثالی از تعامل دنیای فیزیک و دیجیتال
-3. **برنامه‌نویسی رویدادمحور**: Event-driven programming
-4. **طراحی رابط کاربری**: UX/UI design principles
-
-## 🔧 راهنمای استفاده
-
-### مراحل اجرا:
-
-1. **باز کردن فایل:** `index.html` را در مرورگر باز کنید
-2. **کنترل دما:** از اسلایدر برای تغییر دما استفاده کنید
-3. **مشاهده انتقالات:** تغییرات در دیاگرام FSM و خودرو را ببینید
-4. **استفاده از میانبرها:** کلیدهای H، C، N را امتحان کنید
-
-### نکات مهم:
-
-- دما بالای ۳۵ درجه: سیستم سرمایش فعال می‌شود
-- دما زیر ۱۵ درجه: سیستم گرمایش فعال می‌شود
-- دما بین ۱۵-۳۵ درجه: سیستم در حالت IDLE قرار می‌گیرد
-- انتقالات با انیمیشن فلش‌ها نمایش داده می‌شود
-
-## 📈 امکانات توسعه آینده
-
-### پیشنهادات بهبود:
-
-1. **حالات بیشتر:** اضافه کردن حالت‌هایی مثل AUTO، ECO
-2. **کنترل رطوبت:** اضافه کردن بعد رطوبت به سیستم
-3. **صفحه تنظیمات:** امکان تنظیم حدود دما
-4. **گزارش‌گیری:** ذخیره تاریخچه تغییرات
-5. **صدا:** اضافه کردن جلوه‌های صوتی
-6. **موبایل:** بهینه‌سازی برای دستگاه‌های همراه
-
-## 🎓 نتیجه‌گیری
-
-این پروژه نمونه‌ای کامل و جامع از پیاده‌سازی **ماشین حالت محدود** در محیط وب است که علاوه بر جنبه آموزشی، قابلیت‌های تعاملی و بصری جذابی دارد. کد برنامه به شیوه‌ای منظم و قابل توسعه نوشته شده و می‌تواند به عنوان پایه‌ای برای پروژه‌های پیچیده‌تر استفاده شود.
-
-### دستاوردهای کلیدی:
-
-✅ پیاده‌سازی صحیح و کامل FSM  
-✅ رابط کاربری زیبا و تعاملی  
-✅ کد تمیز و مستندسازی شده  
-✅ قابلیت آموزشی بالا  
-✅ عملکرد بلادرنگ و پایدار
-
----
-
-**توسعه‌دهنده:** Assistant  
-**تاریخ:** ۲۱ آبان ۱۴۰۴  
-**نسخه:** 1.0.0
+1. **Correct FSM Implementation**:State machine logic follows scientific principles.
+2. **Attractive User Interface**: Visual and interactive design.
+3. **Clean and Organized Code**: Separation of concerns in different files.
+4. **Extensibility**: Scalable structure for adding more states.
+5. **Real-time Responsiveness**: Changes are applied instantly.
+ 

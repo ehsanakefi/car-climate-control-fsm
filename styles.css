@@ -1,4 +1,4 @@
-/* Car Climate Control State Machine - Styles */
+ 
 
 body {
     font-family: Arial, sans-serif;
@@ -7,6 +7,11 @@ body {
     background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
     min-height: 100vh;
     overflow-x: hidden;
+    font-family: myFont;
+}
+@font-face {
+  font-family: myFont;  
+  src: url(Vazir.woff);  
 }
 
 .container {
@@ -84,7 +89,6 @@ h1 {
 }
 .box_2{
     display: flex;
-    flex:1;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -237,7 +241,6 @@ h1 {
     fill: #f44336;
     
 }
-/* Climate effects */
 .climate-effect {
     position: absolute;
     top: 0;
@@ -293,7 +296,6 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* FSM Graphical Representation */
 .fsm-diagram {
     background: #f8f9fa;
     border: 2px solid #dee2e6;
@@ -482,4 +484,3 @@ h1 {
     top: 232px;
     left: 47%;
 }
-

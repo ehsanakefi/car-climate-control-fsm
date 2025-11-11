@@ -1,0 +1,483 @@
+/* Car Climate Control State Machine - Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 97vw;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.controls {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.temperature-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.temperature-control label {
+    font-weight: bold;
+    min-width: 150px;
+}
+
+.temperature-slider {
+    flex: 1;
+    height: 8px;
+    border-radius: 5px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.temperature-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.temperature-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    border: none;
+}
+
+.temperature-display {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+}
+.box_1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.status-panel {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0.5rem;
+    flex: 1;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.status-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #ddd;
+}
+
+.status-item h3 {
+    margin: 0 0 10px 0;
+    color: #555;
+}
+
+.status-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.state-idle { color: #666; }
+.state-cooling { color: #2196F3; }
+.state-heating { color: #f44336; }
+
+/* Road and Car Animation */
+.road-container {
+    position: relative;
+    height: 200px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.road {
+    width: 100%;
+    height: 100%;
+    background: #333;
+    position: relative;
+}
+
+.road-lines {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    height: 4px;
+    background-image: repeating-linear-gradient(
+        to right,
+        #ffff00 0px,
+        #ffff00 30px,
+        transparent 30px,
+        transparent 60px
+    );
+    transform: translateY(-50%);
+    animation: movingRoad 2s linear infinite;
+}
+
+@keyframes movingRoad {
+    0% { transform: translateX(0) translateY(-50%); }
+    100% { transform: translateX(-60px) translateY(-50%); }
+}
+
+.car {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 60px;
+    transition: all 0.5s ease;
+}
+
+.car-body {
+    width: 100%;
+    height: 100%;
+    /* background: #888; */
+    border-radius: 15px 15px 5px 5px;
+    position: relative;
+    transform: scaleX(-1);
+    transition: background-color 0.5s ease;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
+}
+
+.car-windshield {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    right: 15px;
+    height: 25px;
+    background: #4A90E2;
+    border-radius: 10px 10px 0 0;
+    opacity: 0.7;
+}
+
+.car-wheels {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+}
+
+.wheel {
+    width: 20px;
+    height: 20px;
+    /* background: #222; */
+    border-radius: 50%;
+    position: absolute;
+    animation: spin 0.5s linear infinite;
+}
+
+.wheel.front { right: 10px; }
+.wheel.rear { left: 10px; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* State-based car colors */
+.car-idle .car-body {
+    fill: #0eea8e;
+}
+
+.car-cooling .car-body {
+    fill:  #2196F3;
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+.car-cooling  {
+    fill:  #2196F3;
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+.car-heating .car-body {
+    fill: #f44336;
+ 
+}
+.car-heating  {
+    fill: #f44336;
+    
+}
+/* Climate effects */
+.climate-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.cooling-effect {
+    background: radial-gradient(circle, rgba(33, 150, 243, 0.1) 0%, transparent 70%);
+}
+
+.heating-effect {
+    background: radial-gradient(circle, rgba(244, 67, 54, 0.1) 0%, transparent 70%);
+}
+
+.effect-active {
+    opacity: 1;
+}
+
+.state-description {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    font-style: italic;
+    color: #666;
+}
+
+.transition-rules {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+}
+
+.transition-rules h3 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.transition-rules ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.transition-rules li {
+    margin-bottom: 5px;
+}
+
+/* FSM Graphical Representation */
+.fsm-diagram {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 40px 20px;
+    flex: 1;
+    margin: 30px 0.5rem;
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.fsm-title {
+    text-align: center;
+    margin: 0 0 30px 0;
+    color: #495057;
+    font-size: 18px;
+    font-weight: bold;
+}
+#fsm-idle{
+    top: 30%;
+    right: 34%;
+}
+#fsm-cooling{
+   bottom : 40%;
+   left: 32%;
+}
+#fsm-heating{
+    top: 30%;
+}
+.fsm-states {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 200px;
+}
+
+.fsm-state {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #6c757d;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.fsm-state.active {
+    border-color: #007bff;
+    background: #007bff;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.fsm-state.cooling {
+    border-color: #2196F3;
+}
+
+.fsm-state.cooling.active {
+    border-color: #2196F3;
+    background: #2196F3;
+}
+
+.fsm-state.heating {
+    border-color: #f44336;
+}
+
+.fsm-state.heating.active {
+    border-color: #f44336;
+    background: #f44336;
+}
+
+/* FSM Transitions (Arrows) */
+.fsm-transitions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.fsm-arrow {
+    position: absolute;
+    height: 2px;
+    background: #6c757d;
+    transform-origin: left center;
+    transition: all 0.3s ease;
+}
+
+.fsm-arrow::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #6c757d;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+}
+
+.fsm-arrow.active {
+    background: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+.fsm-arrow.active::after {
+    border-left-color: #007bff;
+}
+
+/* Specific arrow positions */
+.fsm-arrow.idle-to-cooling {
+    top: 60%;
+    left: 23%;
+    width: 24%;
+    transform: rotate(329deg);
+}
+
+.fsm-arrow.idle-to-heating {
+    top: 71%;
+    left: 24%;
+    width: 49%;
+    transform: rotate(0deg);
+}
+
+.fsm-arrow.cooling-to-idle {
+    top: 28%;
+    left: 48%;
+    width: 30%;
+    transform: rotate(149deg);
+}
+
+.fsm-arrow.heating-to-idle {
+    top: 64%;
+    left: 77%;
+    width: 49%;
+    transform: rotate(180deg);
+}
+
+/* Transition labels */
+.fsm-label {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+    color: #495057;
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.fsm-label.active {
+    background: rgba(0, 123, 255, 0.1);
+    border-color: #007bff;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.fsm-label.idle-cooling {
+    top: 178px;
+    left: 32%;
+}
+
+.fsm-label.idle-heating {
+    top: 262px;
+    left: 47%;
+}
+
+.fsm-label.cooling-idle {
+    top: 146px;
+    left: 28%;
+}
+
+.fsm-label.heating-idle {
+    top: 232px;
+    left: 47%;
+}

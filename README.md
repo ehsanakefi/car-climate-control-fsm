@@ -59,17 +59,7 @@ This project is a complete simulator for a car's climate control system, designe
 
 ## 🏗️ Project File Architecture
 
-### 📁 Project Structure:
-```
-tamrin1/
-├── index.html              # فایل HTML اصلی
-├── styles.css              # استایل‌های CSS
-├── fsm.js                  # کلاس ماشین حالت محدود
-├── script.js               # منطق اجرا و میانبرهای صفحه‌کلید
-├── car.png                 # تصویر خودرو
-├── coupe-car-svgrepo-com.svg  # فایل SVG خودرو
-└── گزارش_کار.md            # این گزارش
-```
+ 
 ## 💻 Code Analysis
 
 ### 🌐 HTML File (index.html)
